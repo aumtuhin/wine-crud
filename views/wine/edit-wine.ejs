@@ -1,0 +1,93 @@
+<%- include('../layouts/header') %>
+<section class="edit-form">
+    <div class="container">
+        <h2 class="text-center">Edit Wine</h2>
+        <% wine.forEach(function(item){ %>
+            <form action="/wine/edit-wine" method="POST">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" placeholder="title" value="<%= item.title %>" class="form-control" name="title">
+                </div><br>
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <select name="country" id="country" class="form-control">
+                        <option value="<%= item.country %>"><%= item.country %></option>
+                        <option value="France">France</option>
+                    </select>
+                </div><br>
+                <div class="form-group">
+                    <label for="">Region</label>
+                    <select name="region" id="region" class="form-control">
+                        <option value="<%= item.region %>"><%= item.region %></option>
+                        <option value="Essen">Essen</option>
+                    </select>
+                </div><br>
+                <div class="form-group">
+                    <label for="lage">Lage</label>
+                    <select name="lage" id="lage" class="form-control">
+                        <option value="<%= item.lage %>"><%= item.lage %></option>
+                        <option value="Wesel">Wesel</option>
+                    </select>
+                </div><br>
+                <div class="form-group">
+                    <label for="sweetness">Sweetness</label>
+                    <input type="text" value="<%= item.sweetness %>" placeholder="Sweetness" class="form-control" name="sweetness">
+                </div><br>
+                <div class="form-group">
+                    <label for="sugarLevel">Sugar level</label>
+                    <input type="text" value="<%= item.sugarLevel %>" placeholder="Sugar Level" class="form-control" name="sugarLevel">
+                </div><br>
+                <div class="form-group">
+                    <label for="wineType">Wine Type</label>
+                    <input type="text" value="<%= item.wineType %>" placeholder="wineType" class="form-control" name="wineType">
+                </div><br>
+                <div class="form-group">
+                    <label for="wineColor">Wine Color</label>
+                    <input type="text" value="<%= item.wineColor %>" placeholder="Wine Color" class="form-control" name="wineColor">
+                </div><br>
+                <div class="form-group">
+                    <label for="desc">Description</label>
+                    <textarea id="desc" type="text" placeholder="Description" class="form-control" name="desc"><%= item.description %></textarea>
+                </div><br>
+                <div class="form-group">
+                    <label for="alcoholLevel">Alcohol Level</label>
+                    <input id="alcoholLevel" value="<%= item.alcoholLevel %>" type="text" placeholder="Alcohol Level" class="form-control" name="alcoholLevel">
+                </div><br>
+                <div class="form-group">
+                    <label for="vintage">Vintage</label>
+                    <select name="vintage" id="vintage" class="form-control">
+                        <option value="<%= item.vintage %>"><%= item.vintage %></option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                    </select>
+                </div><br>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="<%= item.validEAN %>"  id="flexCheckDefault" name="validEAN">
+                    <label class="form-check-label" for="flexCheckDefault">ValidEAN</label>
+                </div><br>
+                <div class="form-group">
+                    <label for="acidity">Acidity</label>
+                    <input id="acidity" value="<%= item.acidity %>" type="text" placeholder="Acidity" class="form-control" name="acidity">
+                </div><br>
+                <div class="form-group">
+                    <label for="winery">Winery</label>
+                    <input id="winery" value="<%= item.winery %>" type="text" placeholder="Winery" class="form-control" name="winery">
+                </div><br>
+                <div class="form-group">
+                    <label for="Grape">Grape</label>
+                    <input id="grape" value="<%= item.grape %>" type="text" placeholder="Grape" class="form-control" name="grape">
+                </div><br>
+                <div class="form-group">
+                    <label for="appellation">Appellation</label>
+                    <input value="<%= item.appellation %>" id="appellation" type="text" placeholder="Appellation" class="form-control" name="appellation">
+                </div><br>
+                <input type="hidden" value="<%= item.id %>" name="wineId">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+        <% }); %>
+    </div>
+</section>
+
+<%- include('../layouts/footer') %>

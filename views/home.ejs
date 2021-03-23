@@ -1,0 +1,33 @@
+<%- include('./layouts/header') %>
+<section class="wine-home">
+    <div class="container">
+        <h1 class="text-center">Our Wines</h1>
+        <a class="btn btn-primary text-center" href="/wine/add-wine">Add new Item</a>
+        <% wines.forEach(function(wine) { %>
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1zbUAfSxMOk9jXdT1p7zsPZ6lYNKr5Wi7TAtEYIbs-4nM4le1-Oo1_cK40xbjP30Djuo&usqp=CAU"
+                    alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title"><%= wine.title %></h5>
+                    <p class="card-text"><%= wine.description %></p>
+                    <p>Lage: <%= wine.lage %></p>
+                    <p>Sweetness: <%= wine.sweetness %></p>
+                    <p>Sugar Level: <%= wine.sugarLevel %>%</p>
+                    <p>Wine Type: <%= wine.wineType %></p>
+                    <p>Wine Color: <%= wine.wineColor %></p>
+                    <p>Alcohol Level: <%= wine.alcoholLevel %>%</p>
+                    <p>Vintage: <%= wine.vintage %></p>
+                    <p>ValidEAN: <%= wine.ValidEAN %></p>
+                    <p>Acidity: <%= wine.acidity %>%</p>
+                    <p>Winery: <%= wine.winery %></p>
+                    <p>Grape: <%= wine.grape %></p>
+                    <p>Appellation: <%= wine.appellation %></p>
+                    <a href="/wine/edit-wine/<%= wine.id %>" class="btn btn-primary">Edit</a>
+                    <a href="/wine/delete-wine/<%= wine.id %>" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+            <% }) %>
+    </div>
+</section>
+<%- include('./layouts/footer') %>
